@@ -4,6 +4,7 @@
 ## Requirements
 
 - Python 3.6 or higher
+- uv
 
 
 ## Installation
@@ -14,17 +15,19 @@
    cd projects
    ```
 
-2. Create a virtual environment (optional but recommended):
+2. Install uv (If you haven't already):
    ```
-   python -m venv venv
-   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   curl -Ls https://astral.sh/uv/install.sh | sh
    ```
 
 3. Install the required packages:
    ```
-   pip install -r requirements.txt
+   uv add -r requirements.txt
    ```
-
+4. Run the program
+    ```
+    uv run main.py
+    ```
 
 ## Project 1 Documentation
 1. Description:
@@ -85,4 +88,7 @@
                 )
                 ```
     - Time complexity: $O(n^2 * 2^n)$
+
+## main.py
+    - Output: Minimum distance from Des Moines to all 'M' states ending at Olympia: 7583.77 km
 
