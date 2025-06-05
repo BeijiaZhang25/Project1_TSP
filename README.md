@@ -20,14 +20,20 @@
    curl -Ls https://astral.sh/uv/install.sh | sh
    ```
 
-3. Install the required packages:
+3. Create a virtual environment within the repository and activate it:
    ```
-   uv add -r requirements.txt
+   uv venv .venv
    ```
-4. Run the program
-    ```
+   
+4. Install the required packages:
+   ```
+   uv pip install -r requirements.txt
+   ```
+   
+5. Run the program
+   ```
     uv run main.py
-    ```
+   ```
 
 ## Project 1 Documentation
 1. Description:
