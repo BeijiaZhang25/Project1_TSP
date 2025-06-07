@@ -5,12 +5,18 @@ from typing import TypedDict, List
 
 
 class Address(TypedDict):
+    """
+    An Address object formatted as a standardized address
+    """
     street: str
     city: str
     state: str
     zip: str
 
 class StateCapital(TypedDict):
+    """
+    A StateCapital object formatted for use of input in this program
+    """
     state: str
     capital: str
     address: Address
@@ -18,6 +24,9 @@ class StateCapital(TypedDict):
     longitude: float
 
 class DistanceMatrixObject(TypedDict):
+    """
+    A Distance Matrix containing starting and ending index to be used for defined algorithms
+    """
     distance_matrix: List[List[float]]
     start_index: int
     end_index: int
@@ -44,7 +53,7 @@ def haversine(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     :param lon2: Point B longitude as a float.
     :return: Distance between Point A and Point B on the Earth as a float
     """
-    radius_earth_km = 6371  # Earth radius in km
+    radius_earth_km = 6371
     phi1, phi2 = math.radians(lat1), math.radians(lat2)
     d_phi = math.radians(lat2 - lat1)
     d_lambda = math.radians(lon2 - lon1)
@@ -52,6 +61,22 @@ def haversine(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     return radius_earth_km * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
 def held_karp(distance_matrix_json: DistanceMatrixObject) -> float:
+    """
+    Description:
+    This uses the Held-Karp algorithm (https://en.wikipedia.org/wiki/Held%E2%80%93Karp_algorithm#:~:text=The%20Held%E2%80%93Karp%20algorithm,%20also,to%20find%20a%20minimum-length)
+    to find the minimum path visiting all nodes only once, starting from a specified start node and ending at a specified end node.
+
+    :param distance_matrix_json: A dictionary-object containing:
+            - 'distance_matrix': 2D list/array where a distance_matrix[row][column] represents
+               the distance from a node at that row to a node at that column
+            - 'start_index': Integer index of the starting node
+            - 'end_index': Integer index of the ending node
+    :return: Minimum cost to visit all nodes exactly once, starting from the start_index and ending at the end_index.
+
+    Notes:
+    - Has time complexity O(n²2ⁿ) where n is the number of nodes
+    - Has space complexity O(n2ⁿ)
+    """
     distance_matrix = distance_matrix_json['distance_matrix']
     start = distance_matrix_json['start_index']
     end = distance_matrix_json['end_index']
