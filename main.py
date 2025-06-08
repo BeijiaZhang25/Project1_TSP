@@ -34,7 +34,8 @@ class DistanceMatrixObject(TypedDict):
 def haversine(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     """
     Description:
-    Uses Haversine Formula to find the distance on Earth from two points geographically.
+    Uses Haversine Formula (https://en.wikipedia.org/wiki/Haversine_formula)
+    to find the distance on Earth from two points geographically.
 
     Haversine Formula is:
     a = sin²(Δφ/2) + cos φ1 * cos φ2 * sin²(Δλ/2)
@@ -43,7 +44,7 @@ def haversine(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     Where:
     * φ is latitude in radians
     * λ is longitude in radians
-    * R is Earth's radius in km (6371)
+    * R is Earth's radius in miles (3958.756)
     * Δφ is the difference in latitudes
     * Δλ is the difference in longitudes
 
@@ -53,12 +54,12 @@ def haversine(lat1: float, lon1: float, lat2: float, lon2: float) -> float:
     :param lon2: Point B longitude as a float.
     :return: Distance between Point A and Point B on the Earth as a float
     """
-    radius_earth_km = 6371
+    radius_earth_miles = 3958.8
     phi1, phi2 = math.radians(lat1), math.radians(lat2)
     d_phi = math.radians(lat2 - lat1)
     d_lambda = math.radians(lon2 - lon1)
     a = math.sin(d_phi / 2) ** 2 + math.cos(phi1) * math.cos(phi2) * math.sin(d_lambda / 2) ** 2
-    return radius_earth_km * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
+    return radius_earth_miles * 2 * math.atan2(math.sqrt(a), math.sqrt(1 - a))
 
 def held_karp(distance_matrix_json: DistanceMatrixObject) -> float:
     """
@@ -173,4 +174,4 @@ if __name__ == "__main__":
     distance_matrix_object = create_distance_matrix_object(state_capitals, "Des Moines", "Olympia")
 
     result = held_karp(distance_matrix_object)
-    print(f"Minimum distance from Des Moines to all 'M' states ending at Olympia: {result:.2f} km")
+    print(f"Minimum distance from Des Moines, Iowa to all 'M' states ending at Olympia, Washington: {result:.2f} miles")
