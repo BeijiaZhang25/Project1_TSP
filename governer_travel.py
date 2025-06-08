@@ -33,12 +33,12 @@ def two_opt(route, coords):
         route = best
     return best
 
-with open('state_capitals_structured_Hetong_Wang.json') as f:
+with open('state_capitals_with_coordinates.json') as f:
     capitals = json.load(f)
 
 capital_coords = {c['state']: (c['latitude'], c['longitude']) for c in capitals}
 
-start, end = "Iowa", "Washington DC"
+start, end = "Iowa", "Washington"
 states_to_visit = set(capital_coords.keys()) - {start, end}
 
 current = start
@@ -57,7 +57,7 @@ route.append(end)
 # Optimize route using 2-opt
 optimized_route = two_opt(route, capital_coords)
 
-print("Optimized Route from Iowa to Washington DC:")
+print("Optimized Route from Iowa to Washington:")
 for state in optimized_route:
     print(state)
 print("Total distance (km):", total_distance(optimized_route, capital_coords))

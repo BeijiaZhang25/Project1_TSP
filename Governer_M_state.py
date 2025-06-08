@@ -4,7 +4,7 @@ from itertools import permutations
 from tqdm import tqdm
 
 # 1. Load your JSON data
-with open('state_capitals_structured_Hetong_Wang.json', 'r') as f:
+with open('state_capitals_with_coordinates.json', 'r') as f:
     data = json.load(f)
 
 # 2. Build a mapping from state name to (lat, lon)
@@ -12,7 +12,7 @@ state_coords = {entry['state']: (entry['latitude'], entry['longitude']) for entr
 print(state_coords.keys())
 # 3. List your start, end, and "M" states
 start = 'Iowa'
-end = 'Washington DC'  # DC's state name in most datasets, or use 'Washington DC' if that's your key
+end = 'Washington'
 
 # List of the eight "M" states, must match the exact 'state' key in the JSON
 M_states = [

@@ -40,7 +40,7 @@
     - Find the most efficient route (shortest total distance or time) for a politician to:
         - Visit every U.S. state capital exactly once
         - Start in Iowa
-        - End in Washington, DC
+        - End in Washington
 2. Algorithm used: Held-Karp
     - Terminology Definition
         - j: represents the last city visited in a partial path
