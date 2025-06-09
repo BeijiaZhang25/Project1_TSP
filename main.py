@@ -79,9 +79,18 @@ def held_karp(distance_matrix_json: DistanceMatrixObject) -> float:
     - Has space complexity O(n2ⁿ)
     """
     distance_matrix = distance_matrix_json['distance_matrix']
+    n = len(distance_matrix)
+
+    # Verify distance_matrix
+    for row_index in range(n):
+        if len(distance_matrix[row_index]) != n:
+            raise ValueError("Matrix is not a square")
+
+    if n == 0:
+        return 0
+
     start = distance_matrix_json['start_index']
     end = distance_matrix_json['end_index']
-    n = len(distance_matrix)
     dp = {}
 
     # Initialize base cases (start + one other node)
