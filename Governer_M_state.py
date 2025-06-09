@@ -38,6 +38,9 @@ for route in tqdm(permutations(M_states), total=40320):
         city1 = state_coords[path[i]]
         city2 = state_coords[path[i + 1]]
         total_dist += geodesic(city1, city2).kilometers
+        # Check if we are over minimum distance and break if true.
+        if total_dist > min_distance:
+            break
     if total_dist < min_distance:
         min_distance = total_dist
         best_route = path
