@@ -98,3 +98,60 @@
 ## main.py
     - Output: Minimum distance from Des Moines to all 'M' states ending at Olympia: 7583.77 km
 
+## tsp_ortoolspy
+    - Output:
+        Optimal route:
+            1. Des Moines
+            2. Saint Paul
+            3. Bismarck
+            4. Pierre
+            5. Cheyenne
+            6. Denver
+            7. Salt Lake City
+            8. Helena
+            9. Boise
+            10. Salem
+            11. Olympia
+            12. Juneau
+            13. Honolulu
+            14. Sacramento
+            15. Carson City
+            16. Phoenix
+            17. Santa Fe
+            18. Austin
+            19. Baton Rouge
+            20. Jackson
+            21. Montgomery
+            22. Tallahassee
+            23. Atlanta
+            24. Columbia
+            25. Raleigh
+            26. Richmond
+            27. Charleston
+            28. Columbus
+            29. Indianapolis
+            30. Frankfort
+            31. Nashville
+            32. Little Rock
+            33. Oklahoma City
+            34. Topeka
+            35. Lincoln
+            36. Jefferson City
+            37. Springfield
+            38. Madison
+            39. Lansing
+            40. Harrisburg
+            41. Albany
+            42. Montpelier
+            43. Augusta
+            44. Concord
+            45. Boston
+            46. Providence
+            47. Hartford
+            48. Trenton
+            49. Dover
+            50. Annapolis
+            51. Washington
+        Total distance: 26734.95 km
+    - tsp_ortools_route.png
+
