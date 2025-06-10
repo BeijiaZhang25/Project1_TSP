@@ -23,7 +23,7 @@ def create_distance_matrix(coords, city_list):
     return matrix
 
 def main():
-    with open("./state_capitals_with_coordinates.json", "r") as f:
+    with open("./state_capitals_structured_Hetong_Wang.json", "r") as f:
         data = json.load(f)
 
     city_names = [item["capital"] for item in data]
@@ -31,7 +31,7 @@ def main():
 
     # Index of start and end cities
     start_city = "Des Moines"
-    end_city = "Olympia"
+    end_city = "Washington"
     start_index = city_names.index(start_city)
     end_index = city_names.index(end_city)
 
